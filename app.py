@@ -39,6 +39,14 @@ def initdb():
             language TEXT NOT NULL
         )
     """)
+    terms = [
+         ("GPA", "Grade Point Average: a measure of a student's academic performance.", "English"),
+        ("Transcript", "An official record of a student's courses and grades.", "English"),
+        ("Credits", "Units awarded for completing coursework that count toward graduation requirements.", "English"),
+        ("AP", "Advanced Placement: courses that offer college-level material in high school.", "English"),
+        ("Honors", "Courses that typically cover material in greater depth or at a faster pace than regular courses.", "English")
+    ]
+    conn.executemant("INSERT OR IGNORE INTO terms (word, definition, language) VALUES (?, ?, ?)", terms)
     conn.commit()
     conn.close()
     return "Databse intialized good"
