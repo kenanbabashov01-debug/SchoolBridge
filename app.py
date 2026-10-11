@@ -46,10 +46,10 @@ def initdb():
         ("AP", "Advanced Placement: courses that offer college-level material in high school.", "English"),
         ("Honors", "Courses that typically cover material in greater depth or at a faster pace than regular courses.", "English")
     ]
-    conn.executemant("INSERT OR IGNORE INTO terms (word, definition, language) VALUES (?, ?, ?)", terms)
+    conn.executemany("INSERT OR IGNORE INTO terms (word, definition, language) VALUES (?, ?, ?)", terms)
     conn.commit()
     conn.close()
-    return "Databse intialized good"
+    return "Database initialized"
 
 if __name__ == "__main__":
     app.run(debug=True)
